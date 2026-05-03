@@ -17,6 +17,11 @@ while (true)
     {
         string? opcaoSubMenu = telaSelecionada.ObterOpcaoMenu();
 
+        if (opcaoSubMenu == "S")
+        {
+            Console.Clear();
+            break;
+        }
         if (telaSelecionada is TelaBase telaBase)
         {
             if (opcaoSubMenu == "1")

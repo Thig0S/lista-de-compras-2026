@@ -37,12 +37,6 @@ public class Produto : EntidadeBase
         else if (Nome.Length < 2 || Nome.Length > 100)
             erros += "Nome deve conter entre 2 a 100 caracteres!;";
 
-        if (Categoria == null)
-            erros += "Categoria não pode ser vazia!;";
-
-        if (UnidadeMedida <= 0)
-            erros += "Unidade de medida deve ser maior que zero!;";
-
         if (Preco <= 0)
             erros += "Preço deve ser maior que zero!;";
 
