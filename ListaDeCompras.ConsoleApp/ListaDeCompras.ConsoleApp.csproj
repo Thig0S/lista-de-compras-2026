@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <Folder Include="Compartilhado\" />
+    <Folder Include="ModuloItemDeCompra\" />
+    <Folder Include="ModuloListaDeCompra\" />
     <Folder Include="ModuloCategoria\" />
     <Folder Include="ModuloProdutos\" />
   </ItemGroup>
