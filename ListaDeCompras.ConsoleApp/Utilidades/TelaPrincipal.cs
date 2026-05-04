@@ -13,14 +13,14 @@ public class TelaPrincipal
     private readonly RepositorioListas repositorioListas = new();
     public TelaPrincipal()
     {
-        Categoria categoria = new Categoria("Limpeza", "Vermelho");
-        Categoria categoria2 = new Categoria("Cerveja", "Vermelho");
-        Categoria categoria3 = new Categoria("Vodka", "Vermelho");
+        Categoria categoria = new Categoria("limpeza", "Vermelho");
+        Categoria categoria2 = new Categoria("cerveja", "Vermelho");
+        Categoria categoria3 = new Categoria("vodka", "Vermelho");
         repositorioCategoria.Cadastrar(categoria);
         repositorioCategoria.Cadastrar(categoria2);
         repositorioCategoria.Cadastrar(categoria3);
 
-        Produto produto = new Produto("Cerveja", categoria2, UnidadeMedida.Litro, 10.50m);
+        Produto produto = new Produto("Cerveja", categoria2, UnidadeMedida.Litro, 10);
         repositorioProduto.Cadastrar(produto);
 
         ListaDeCompra lista = new ListaDeCompra("Churrasco Academia", new DateTime(07 / 05 / 2026));

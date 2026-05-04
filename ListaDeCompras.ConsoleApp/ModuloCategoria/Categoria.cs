@@ -22,6 +22,8 @@ public class Categoria : EntidadeBase
 
         if (string.IsNullOrWhiteSpace(Cor))
             erros += "O campo \"Cor\" deve ser preenchido;";
+        if (Nome == "duplicado")
+            erros += "Já possui uma categoria com este nome!;";
 
         else if (Cor != "Vermelho" && Cor != "Azul" && Cor != "Verde" && Cor != "Branco")
             erros += "O campo \"Cor\" deve conter uma seleção permitida (Vermelho, Azul, Verde, Branco);";

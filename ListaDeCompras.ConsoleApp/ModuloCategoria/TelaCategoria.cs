@@ -65,7 +65,15 @@ public class TelaCategoria : TelaBase
     protected override EntidadeBase ObterDadosCadastrais()
     {
         Console.Write("Digite o nome da categoria: ");
-        string nome = Console.ReadLine() ?? string.Empty;
+        string nome = Console.ReadLine()?.ToLower() ?? string.Empty;
+
+        RepositorioCategoria rep = (RepositorioCategoria)repositorio;
+        bool RegistroEstaDuplicado = rep.VerificarDuplicado(nome);
+
+        if (RegistroEstaDuplicado)
+        {
+            return new Categoria("duplicado", "Vermelho");
+        }
 
         Console.WriteLine("---------------------------------");
         Console.WriteLine("Selecione uma cor válida para a categoria");
@@ -77,6 +85,8 @@ public class TelaCategoria : TelaBase
         Console.WriteLine("---------------------------------");
         Console.Write("Digite a cor da categoria: ");
         string cor = Console.ReadLine() ?? string.Empty;
+
+
 
         string corPorExtenso;
 

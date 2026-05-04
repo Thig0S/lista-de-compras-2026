@@ -10,8 +10,22 @@ public class ListaDeCompra : EntidadeBase
 {
     public string Titulo { get; set; }
     public DateTime Data { get; set; }
-    public List<ItemCompra> ItensLista { get; set; } = new List<ItemCompra>();
+    public List<ItemCompra> ItensLista { get; set; } = [];
+    public decimal ValorTotal
+    {
+        get
+        {
+            decimal total = 0;
+            foreach (ItemCompra itemCompra in ItensLista)
+            {
+                decimal precoProduto = itemCompra.Produto.Preco;
+                decimal asd = itemCompra.QuantidadeProduto;
 
+                total += precoProduto * asd;
+            }
+            return total;
+        }
+    }
     public ListaDeCompra(string titulo, DateTime data)
     {
         Titulo = titulo;

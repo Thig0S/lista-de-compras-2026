@@ -42,19 +42,23 @@ public class TelaLista : TelaBase
                 }
                 else
                 {
+                    System.Console.WriteLine("");
                     foreach (ItemCompra item in l.ItensLista)
                     {
                         System.Console.WriteLine($"    - Nome: {item.Produto.Nome}");
                         System.Console.WriteLine($"    - Quantidade: {item.QuantidadeProduto}");
                     }
+                    System.Console.WriteLine("");
+                    System.Console.WriteLine(" - Valor total da Lista: R$" + l.ValorTotal);
+                    System.Console.WriteLine("");
                 }
             }
-            if (deveExibirCabecalho)
-            {
-                Console.WriteLine("---------------------------------");
-                Console.Write("Digite ENTER para continuar...");
-                Console.ReadLine();
-            }
+        }
+        if (deveExibirCabecalho)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.Write("Digite ENTER para continuar...");
+            Console.ReadLine();
         }
     }
 
