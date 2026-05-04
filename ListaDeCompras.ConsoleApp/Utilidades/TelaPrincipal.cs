@@ -1,4 +1,5 @@
 using ListaDeCompras.ConsoleApp.Compartilhado;
+using ListaDeCompras.ConsoleApp.ItemDeCompra;
 using ListaDeCompras.ConsoleApp.ModuloCategoria;
 using ListaDeCompras.ConsoleApp.ModuloListaDeCompra;
 using ListaDeCompras.ConsoleApp.ModuloProdutos;
@@ -13,11 +14,18 @@ public class TelaPrincipal
     public TelaPrincipal()
     {
         Categoria categoria = new Categoria("Limpeza", "Vermelho");
-        Categoria categoria2 = new Categoria("Cerveja Eba", "Vermelho");
-        Categoria categoria3 = new Categoria("Vodka Eba", "Vermelho");
+        Categoria categoria2 = new Categoria("Cerveja", "Vermelho");
+        Categoria categoria3 = new Categoria("Vodka", "Vermelho");
         repositorioCategoria.Cadastrar(categoria);
         repositorioCategoria.Cadastrar(categoria2);
         repositorioCategoria.Cadastrar(categoria3);
+
+        Produto produto = new Produto("Cerveja", categoria2, UnidadeMedida.Litro, 10.50m);
+        repositorioProduto.Cadastrar(produto);
+
+        ListaDeCompra lista = new ListaDeCompra("Churrasco Academia", new DateTime(07 / 05 / 2026));
+        repositorioListas.Cadastrar(lista);
+        lista.AdicionarParaLista(new ItemCompra(produto, 64));
     }
 
     public ITela? ApresentarMenuOpcoesPrincipal()
@@ -41,6 +49,8 @@ public class TelaPrincipal
             return new TelaProduto("Produto", repositorioProduto, repositorioCategoria);
         if (opcaoMenuPrincipal == "3")
             return new TelaLista("Lista de Compra", repositorioListas);
+        if (opcaoMenuPrincipal == "4")
+            return new TelaAdicionarLista(repositorioListas, repositorioProduto);
         return null;
     }
 }

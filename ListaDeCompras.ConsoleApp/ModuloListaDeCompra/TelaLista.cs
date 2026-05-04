@@ -7,6 +7,7 @@ namespace ListaDeCompras.ConsoleApp.ModuloListaDeCompra;
 
 public class TelaLista : TelaBase
 {
+
     public TelaLista(string nomeEntidade, RepositorioBase repositorio) : base(nomeEntidade, repositorio)
     {
 
@@ -43,8 +44,8 @@ public class TelaLista : TelaBase
                 {
                     foreach (ItemCompra item in l.ItensLista)
                     {
-                        System.Console.WriteLine($" - Nome: {item.Produto.Nome}");
-                        System.Console.WriteLine($" - Quantidade: {item.QuantidadeProduto}");
+                        System.Console.WriteLine($"    - Nome: {item.Produto.Nome}");
+                        System.Console.WriteLine($"    - Quantidade: {item.QuantidadeProduto}");
                     }
                 }
             }

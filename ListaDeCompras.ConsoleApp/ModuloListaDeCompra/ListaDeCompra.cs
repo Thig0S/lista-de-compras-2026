@@ -2,6 +2,7 @@
 
 using ListaDeCompras.ConsoleApp.Compartilhado;
 using ListaDeCompras.ConsoleApp.ItemDeCompra;
+using ListaDeCompras.ConsoleApp.ModuloProdutos;
 
 namespace ListaDeCompras.ConsoleApp.ModuloListaDeCompra;
 
@@ -35,5 +36,24 @@ public class ListaDeCompra : EntidadeBase
 
         Titulo = listaAtualizada.Titulo;
         Data = listaAtualizada.Data;
+    }
+    public void AdicionarParaLista(ItemCompra i)
+    {
+        ItensLista.Add(i);
+    }
+    public void ExcluirProdutoLista(ItemCompra i)
+    {
+        ItensLista.Remove(i);
+    }
+    public ItemCompra? SelecionarPorIdItemLista(string idSelecionado)
+    {
+        foreach (ItemCompra i in ItensLista)
+        {
+            if (i.Id == idSelecionado)
+            {
+                return i;
+            }
+        }
+        return null;
     }
 }
